@@ -3072,11 +3072,6 @@ declare namespace wx {
     function chooseImage(params: types.ChooseImageParams): void;
 
     /**
-     * 从本地相册选择图片或使用相机拍照。
-     */
-    function chooseImage(params: types.ChooseImageParams): void;
-
-    /**
      * 预览图片，调用之后会在新打开的页面中全屏预览传入的图片，预览的过程中用户可以进行保存图片、发送给朋友等操作
      */
     function previewImage(params: types.PreviewImageParams): void;
