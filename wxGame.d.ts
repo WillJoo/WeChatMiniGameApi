@@ -399,7 +399,14 @@ declare namespace wx {
             isFile(): boolean;
         }
 
-        type FileContentEncoding = "ascii" | "base64" | "binary" | "hex" | "ucs2/ucs-2/utf16le/utf-16le" | "utf-8/utf8" | "latin1";
+        type FileContentEncoding =
+            "ascii" |
+            "base64" |
+            "binary" |
+            "hex" |
+            "ucs2" | "ucs-2" | "utf16le" | "utf-16le" | //以小端序读取
+            "utf-8" | "utf8" |
+            "latin1";
 
         interface RenameParams extends CallbackParams {
             oldPath: string;
@@ -886,7 +893,7 @@ declare namespace wx {
              * 指定文件存储的路径
              * 支持版本 >= 1.8.0
              */
-            filePath: string;
+            filePath?: string;
         }
 
         interface NetworkFileResponse {
@@ -1685,7 +1692,7 @@ declare namespace wx {
             iv: string
         }
 
-        interface ShareParams {
+        interface ShareParams extends CallbackParams {
             /**
              * 转发标题，不传则默认使用当前小游戏的昵称。
              */
