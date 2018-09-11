@@ -8,6 +8,13 @@
 
 //声明全局变量
 declare let canvas: wx.types.Canvas;
+declare let wxo: {
+    setUserCloudStorage: (param: wx.types.SetUserCloudStorageParams) => void,
+    removeUserCloudStorage: (param: wx.types.RemoveUserCloudStorageParams) => void,
+    getUserCloudStorage: (param: wx.types.GetUserCloudStorageParams) => void,
+    getFriendCloudStorage: (param: wx.types.GetFriendCloudStorageParams) => void,
+    getGroupCloudStorage: (param: wx.types.GetGroupCloudStorageParams) => void
+};
 
 //声明全局函数
 
@@ -156,7 +163,11 @@ declare namespace wx {
             antialiasSamples?: number;
         }
 
-        interface Canvas {
+        interface Canvas extends HTMLCanvasElement {
+            /**
+             * 私用属性 实际不存在
+             */
+            _?: any;
             /**
              * 画布的宽度
              */
@@ -185,7 +196,7 @@ declare namespace wx {
             toDataURL(): string;
         }
 
-        interface Image {
+        interface Image extends HTMLImageElement {
             /**
              * 图片的 URL
              */
