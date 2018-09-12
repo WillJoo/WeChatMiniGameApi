@@ -1112,32 +1112,32 @@ declare namespace wx {
              * 背景颜色
              * 格式#ffffff
              */
-            backgroundColor: string;
+            backgroundColor?: string;
             /**
              * 边框颜色
              * 格式#ffffff
              */
-            borderColor: string;
+            borderColor?: string;
             /**
              * 边框宽度
              */
-            borderWidth: number;
+            borderWidth?: number;
             /**
              * 边框圆角半径
              */
-            borderRadius: number;
+            borderRadius?: number;
             /**
              * 文本的水平居中方式
              */
-            textAlign: "left" | "center" | "right";
+            textAlign?: "left" | "center" | "right";
             /**
              * 字号
              */
-            fontSize: number;
+            fontSize?: number;
             /**
              * 文本的行高
              */
-            lineHeight: number;
+            lineHeight?: number;
             /**
              * 按钮显示的层次
              */
@@ -1209,7 +1209,7 @@ declare namespace wx {
             /**
              * 用户 openId
              */
-            openId: string;
+            openId?: string;
             /**
              * 用户昵称
              */
