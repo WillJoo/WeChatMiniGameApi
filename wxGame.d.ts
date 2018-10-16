@@ -8,13 +8,6 @@
 
 //声明全局变量
 declare let canvas: wx.types.Canvas;
-declare let wxo: {
-    setUserCloudStorage: (param: wx.types.SetUserCloudStorageParams) => void,
-    removeUserCloudStorage: (param: wx.types.RemoveUserCloudStorageParams) => void,
-    getUserCloudStorage: (param: wx.types.GetUserCloudStorageParams) => void,
-    getFriendCloudStorage: (param: wx.types.GetFriendCloudStorageParams) => void,
-    getGroupCloudStorage: (param: wx.types.GetGroupCloudStorageParams) => void
-};
 
 //声明全局函数
 
@@ -164,10 +157,6 @@ declare namespace wx {
         }
 
         interface Canvas extends HTMLCanvasElement {
-            /**
-             * 私用属性 实际不存在
-             */
-            _?: any;
             /**
              * 画布的宽度
              */
@@ -565,7 +554,12 @@ declare namespace wx {
             /**
              * @function mkdir 的同步版本
              * @param dirPath 创建的目录路径
-             * @param recursive 是否在递归创建该目录的上级目录后再创建该目录。如果对应的上级目录已经存在，则不创建该上级目录。如 dirPath 为 a/b/c/d 且 recursive 为 true，将创建 a 目录，再在 a 目录下创建 b 目录，以此类推直至创建 a/b/c 目录下的 d 目录。
+             * @param recursive 是否在递归创建该目录的上级目录后再创建该目录。
+             *                  如果对应的上级目录已经存在，则不创建该上级目录。
+             *                  如 dirPath 为 a/b/c/d 且 recursive 为 true，
+             *                  将创建 a 目录，再在 a 目录下创建 b 目录，
+             *                  以此类推直至创建 a/b/c 目录下的 d 目录。
+             *                  支持版本 >= 2.3.0
              * @throws 上级目录不存在
              * @throws 指定的 filePath 路径没有写权限
              * @throws 有同名文件或目录
@@ -573,7 +567,7 @@ declare namespace wx {
             mkdirSync(dirPath: string, recursive?: boolean): void;
 
             /**
-             * 解链文件
+             * 删除文件
              */
             unlink(params: UnlinkParams): void;
             /**
@@ -1209,6 +1203,7 @@ declare namespace wx {
         interface UserInfo {
             /**
              * 用户 openId
+             * 只在子域可用
              */
             openId?: string;
             /**
