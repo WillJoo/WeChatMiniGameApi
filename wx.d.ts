@@ -2612,15 +2612,15 @@ declare namespace wx {
         }
         interface Button {
             /**
-             * 显示用户信息按钮
+             * 显示按钮
              */
             show(): void;
             /**
-             * 隐藏用户信息按钮
+             * 隐藏按钮
              */
             hide(): void;
             /**
-             * 销毁用户信息按钮
+             * 销毁按钮
              */
             destroy(): void;
         }
