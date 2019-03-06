@@ -53,6 +53,21 @@ declare function clearInterval(intervalID: number): void;
 
 declare namespace wx {
     namespace types {
+        interface Env {
+            /**
+             * 本地用户文件目录
+             */
+            USER_DATA_PATH: string;
+        }
+    }
+    /**
+     * 环境变量
+     */
+    const env: types.Env;
+}
+
+declare namespace wx {
+    namespace types {
         interface Response {
             /* 错误信息 */
             errMsg: string;
@@ -2903,7 +2918,7 @@ declare namespace wx {
             /**
              * 游戏圈按钮的图标，仅当 object.type 参数为 image 时有效
              */
-            icon: "green" | "white" | "dark" | "light";
+            icon?: "green" | "white" | "dark" | "light";
         }
         interface GameClubButton extends GameClubButtonParams, Button {
         }
